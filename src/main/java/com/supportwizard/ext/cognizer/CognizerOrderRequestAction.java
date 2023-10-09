@@ -47,11 +47,11 @@ public class CognizerOrderRequestAction implements ExternalScript {
         String adminPassword = (String)inputRecord.get("cognizer_setting_admin_password");
         String tenantType = ((SWChoiceLine)inputRecord.get("license_type")).getText();
         if ("Conversational AI".equalsIgnoreCase(tenantType)) {
-            tenantType = "C";
+            tenantType = "ICS_PLUS";
         }
 
         if ("AI Platform".equalsIgnoreCase(tenantType)) {
-            tenantType = "P";
+            tenantType = "ICS_PLUS_EXTENDED";
         }
 
         String privacyMode = ((SWChoiceLine)inputRecord.get("privacy_mode")).getText();
@@ -84,6 +84,13 @@ public class CognizerOrderRequestAction implements ExternalScript {
                 Long expirationTimeMin = (expirationDate.getTime() - assignedDate.getTime()) / 60000L;
                 log.info("Cognizer Order assigned to Tenant, expirationDate:" + expirationDate);
                 CognizerUserAssignmentListResponse userAssignmentResponse = httpHelper.userAssignmentList(tenantAdminUserId, "EmpowerGenius2022");
+                if ("ICS_PLUS".equalsIgnoreCase(tenantType)) {
+                    tenantType = "C";
+                }
+
+                if ("ICS_PLUS_EXTENDED".equalsIgnoreCase(tenantType)) {
+                    tenantType = "P";
+                }
 
                 String licenseKey = CognizerUtils2.generateAiHubLicenseKey(encode.equals("True"), baseUrl, xapiKey, orgId, tenantAdminUserId, expirationDate.getTime(), tenantType, privacyMode, userAssignmentResponse.getTotalCount(),
                         hostname, ipaddress, expirationTimeMin, assignedDate, kbname, input.getUserSeance());
