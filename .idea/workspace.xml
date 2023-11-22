@@ -4,75 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="47646461-1d5c-4a7a-80a8-dcfcb960a1c0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/CognizerOrderLicenseGenAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/CognizerOrderRequestAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/CognizerOrderUpgradeAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/CognizerUserSubscriptionRequestAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/DataConverterAiHub.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/KeyGenAiHub.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/AiHubLicense.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/CognizerIngestFileRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/CognizerPagination.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/CognizerQNAResponseData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/CognizerQNAResponseDataDetail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/CognizerQNAResponseDataDetailMeta.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/CognizerQNAResponseDataDetailMetaClause.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/CognizerUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/ContractDataWithACL.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/IngestedDataRecord.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerACL.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerBaseRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerICARequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerICAResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerIngestACLResetRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerIngestACLUpdateBatchRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerIngestACLUpdateBatchResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerIngestACLUpdateRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerIngestBatchInfoResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerIngestBatchStatusResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerIngestContractCheckBatchRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerIngestContractCheckRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerIngestContractCreateBatchRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerIngestContractCreateRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerIngestContractDeleteBatchRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerIngestContractDeleteRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerIngestContractUpdateRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerIngestRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerIngestResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerIngestStatusResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerLCPPBatchResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerLCPPBatchStatusResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerLCPPContractDetailResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerOrderCreateRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerOrderCreateResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerQNARequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerQNAResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerTenantAssignmentRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerTenantAssignmentResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerTenantCreateRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerTenantCreateResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerTokenResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerUserAssignmentListResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerUserAssignmentRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerUserAssignmentResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerUserCreateRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerUserCreateResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerUserSubscriptionAssignmentRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/CognizerUserUnassignmentRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/model/api/ICAExtractedClauseValue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/utils/AiHubLicenseUtil2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/utils/CognizerConstants2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/utils/CognizerHttpHelper2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/utils/CognizerHttpHelperImpl2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/utils/CognizerResponseException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/utils/CognizerUtils2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/utils/EwConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/supportwizard/ext/cognizer/utils/EwHttpHelper.java" afterDir="false" />
+    <list default="true" id="47646461-1d5c-4a7a-80a8-dcfcb960a1c0" name="Changes" comment="Init">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,6 +48,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -130,17 +66,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.4275862",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.4275862&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.supportwizard.ext.cognizer.utils" />
@@ -154,7 +90,45 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1696516510968</updated>
+      <workItem from="1697726984205" duration="598000" />
+      <workItem from="1698207478317" duration="573000" />
+      <workItem from="1698955799421" duration="470000" />
+      <workItem from="1699191765826" duration="549000" />
+      <workItem from="1700584456751" duration="378000" />
     </task>
+    <task id="LOCAL-00001" summary="Init">
+      <created>1696838585796</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1696838585796</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Init">
+      <created>1696840525108</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1696840525108</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Init" />
+    <option name="LAST_COMMIT_MESSAGE" value="Init" />
   </component>
 </project>
