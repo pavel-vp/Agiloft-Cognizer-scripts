@@ -64,7 +64,11 @@ public class CognizerOrderUpgradeAction implements ExternalScript {
         if (!lineConv.getText().equalsIgnoreCase(tenantType)) {
             throw new RuntimeException("Can't upgrade from tenant type: " + tenantType + ", lineConv.getText()=" + lineConv.getText());
         } else {
-            tenantType = "P";
+            if (encode.equals("True")) {
+                tenantType = "P";
+            } else {
+                tenantType = "ICS_PLUS_EXTENDED";
+            }
             String privacyMode = ((SWChoiceLine)inputRecord.get("privacy_mode")).getText();
             String kbname = (String)inputRecord.get("kb_name");
             String hostname = (String)inputRecord.get("server_hostname");

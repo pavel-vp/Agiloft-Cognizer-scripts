@@ -44,12 +44,20 @@ public class CognizerOrderLicenseGenAction implements ExternalScript {
         String baseUrl = (String)inputRecord.get("cognizer_setting_base_url");
         String xapiKey = (String)inputRecord.get("cognizer_setting_xapi_key");
         String tenantType = ((SWChoiceLine)inputRecord.get("license_type")).getText();
+        String encode = ((SWChoiceLine) inputRecord.get("encode")).getText();
         if ("Conversational AI".equalsIgnoreCase(tenantType)) {
-            tenantType = "C";
+            if (encode.equals("True")) {
+                tenantType = "C";
+            } else {
+                tenantType = "ICS_PLUS";
+            }
         }
-
         if ("AI Platform".equalsIgnoreCase(tenantType)) {
-            tenantType = "P";
+            if (encode.equals("True")) {
+                tenantType = "P";
+            } else {
+                tenantType = "ICS_PLUS_EXTENDED";
+            }
         }
 
         String privacyMode = ((SWChoiceLine)inputRecord.get("privacy_mode")).getText();
@@ -61,7 +69,6 @@ public class CognizerOrderLicenseGenAction implements ExternalScript {
         Timestamp expirationDate = (Timestamp)inputRecord.get("tenant_expiration_date");
         Timestamp assignedDate = (Timestamp)inputRecord.get("tenant_assigned_date");
         Long expirationTimeMin = (expirationDate.getTime() - assignedDate.getTime()) / 60000L;
-        String encode = ((SWChoiceLine) inputRecord.get("encode")).getText();
 
         try {
             CloseableHttpClient httpClient = HttpClientBuilder.create().useSystemProperties().build();

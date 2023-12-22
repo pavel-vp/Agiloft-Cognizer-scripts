@@ -84,12 +84,13 @@ public class CognizerOrderRequestAction implements ExternalScript {
                 Long expirationTimeMin = (expirationDate.getTime() - assignedDate.getTime()) / 60000L;
                 log.info("Cognizer Order assigned to Tenant, expirationDate:" + expirationDate);
                 CognizerUserAssignmentListResponse userAssignmentResponse = httpHelper.userAssignmentList(tenantAdminUserId, "EmpowerGenius2022");
-                if ("ICS_PLUS".equalsIgnoreCase(tenantType)) {
-                    tenantType = "C";
-                }
-
-                if ("ICS_PLUS_EXTENDED".equalsIgnoreCase(tenantType)) {
-                    tenantType = "P";
+                if (encode.equals("True")) {
+                    if ("ICS_PLUS".equalsIgnoreCase(tenantType)) {
+                        tenantType = "C";
+                    }
+                    if ("ICS_PLUS_EXTENDED".equalsIgnoreCase(tenantType)) {
+                        tenantType = "P";
+                    }
                 }
 
                 String licenseKey = CognizerUtils2.generateAiHubLicenseKey(encode.equals("True"), baseUrl, xapiKey, orgId, tenantAdminUserId, expirationDate.getTime(), tenantType, privacyMode, userAssignmentResponse.getTotalCount(),
