@@ -38,6 +38,8 @@ public interface CognizerHttpHelper2 {
 
     void tenantUpgrade(String var1, String var2, String var3) throws Exception;
 
+    void tenantDeactivation(String var1, String var2, String var3) throws Exception;
+
     void reserveUserSubscription(String var1, String var2, String var3, String var4, Long var5) throws Exception;
 
     CognizerUserAssignmentListResponse userAssignmentList(String var1, String var2) throws Exception;

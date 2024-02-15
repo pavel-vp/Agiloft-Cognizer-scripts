@@ -14,15 +14,13 @@
     </properties>
 
     <dependencies>
-            <dependency>
-                <groupId>ru.carousel</groupId>
-                <artifactId>carousel-lib</artifactId>
-                <version>1.0</version>
-                <scope>system</scope>
-                <systemPath>
-                    /Users/pavelpinegin/al/wildfly/modules/system/layers/base/com/agiloft/main/lib/agiloft-core.jar
-                </systemPath>
-            </dependency>
+        <dependency>
+            <groupId>com.agiloft</groupId>
+            <artifactId>agiloft-lib</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>/Users/pavelpinegin/al/wildfly/modules/system/layers/base/com/agiloft/main/lib/agiloft-core.jar</systemPath>
+        </dependency>
         <dependency>
             <groupId>net.minidev</groupId>
             <artifactId>json-smart</artifactId>

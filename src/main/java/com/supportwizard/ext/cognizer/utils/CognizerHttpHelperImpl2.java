@@ -202,6 +202,15 @@ public final class CognizerHttpHelperImpl2 implements CognizerHttpHelper2 {
         this.sendRequestWithAuth("POST", this.cognizerBaseUrl + "/" + "tenant/upgrade" + "?orgId=" + orgId, headers, (Object)null, (Class)null, adminUsername, adminPassword);
     }
 
+    public void tenantDeactivation(String adminUsername, String adminPassword, String orgId) throws Exception {
+        Map<String, String> headers = new HashMap<String, String>() {
+            {
+                this.put("x-api-key", CognizerHttpHelperImpl2.this.xApiHeaderKey);
+            }
+        };
+        this.sendRequestWithAuth("DELETE", this.cognizerBaseUrl + "/" + "organisation" + "/" + orgId+"?removeData=true", headers, (Object)null, (Class)null, adminUsername, adminPassword);
+    }
+
     public void reserveUserSubscription(String adminUsername, String adminPassword, String orderId, String orgId, Long noOfSubscription) throws Exception {
         Map<String, String> headers = new HashMap<String, String>() {
             {
