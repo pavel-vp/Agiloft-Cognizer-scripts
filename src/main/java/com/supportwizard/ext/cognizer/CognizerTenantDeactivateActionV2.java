@@ -10,8 +10,8 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.log4j.Logger;
 import com.supportwizard.cachewrappers.SWChoiceCacheWrapper;
 
-public class CognizerTenantDeactivateAction implements ExternalScript {
-  private static final Logger log = Logger.getLogger(CognizerTenantDeactivateAction.class);
+public class CognizerTenantDeactivateActionV2 implements ExternalScript {
+  private static final Logger log = Logger.getLogger(CognizerTenantDeactivateActionV2.class);
   @Override
   public ScriptOutput runScript(ScriptInput input) throws ScriptActionException {
     final ScriptOutput so = new ScriptOutput(input);
@@ -32,7 +32,7 @@ public class CognizerTenantDeactivateAction implements ExternalScript {
       CognizerHttpHelper2 httpHelper = new CognizerHttpHelperImpl2(baseUrl, xapiKey, httpClient);
 
       // Deactivate tenant
-      httpHelper.tenantDeactivation(adminUsername, adminPassword, orgId);
+      httpHelper.tenantDeactivationV2(adminUsername, adminPassword, orgId);
       log.info("Cognizer Tenant deactivated successfully");
 
       updatedRecord.put("license_key", "");

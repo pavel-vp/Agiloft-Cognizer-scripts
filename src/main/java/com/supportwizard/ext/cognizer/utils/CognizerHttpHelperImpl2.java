@@ -8,27 +8,8 @@ package com.supportwizard.ext.cognizer.utils;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.supportwizard.ext.cognizer.model.CognizerUser;
-import com.supportwizard.ext.cognizer.model.api.CognizerIngestACLResetRequest;
-import com.supportwizard.ext.cognizer.model.api.CognizerIngestACLUpdateRequest;
-import com.supportwizard.ext.cognizer.model.api.CognizerIngestContractCheckRequest;
-import com.supportwizard.ext.cognizer.model.api.CognizerIngestContractCreateRequest;
-import com.supportwizard.ext.cognizer.model.api.CognizerIngestContractDeleteRequest;
-import com.supportwizard.ext.cognizer.model.api.CognizerIngestContractUpdateRequest;
-import com.supportwizard.ext.cognizer.model.api.CognizerIngestRequest;
-import com.supportwizard.ext.cognizer.model.api.CognizerIngestResponse;
-import com.supportwizard.ext.cognizer.model.api.CognizerIngestStatusResponse;
-import com.supportwizard.ext.cognizer.model.api.CognizerOrderCreateRequest;
-import com.supportwizard.ext.cognizer.model.api.CognizerOrderCreateResponse;
-import com.supportwizard.ext.cognizer.model.api.CognizerQNARequest;
-import com.supportwizard.ext.cognizer.model.api.CognizerQNAResponse;
-import com.supportwizard.ext.cognizer.model.api.CognizerResponse;
-import com.supportwizard.ext.cognizer.model.api.CognizerTenantAssignmentRequest;
-import com.supportwizard.ext.cognizer.model.api.CognizerTenantAssignmentResponse;
-import com.supportwizard.ext.cognizer.model.api.CognizerTenantCreateRequest;
-import com.supportwizard.ext.cognizer.model.api.CognizerTenantCreateResponse;
-import com.supportwizard.ext.cognizer.model.api.CognizerTokenResponse;
-import com.supportwizard.ext.cognizer.model.api.CognizerUserAssignmentListResponse;
-import com.supportwizard.ext.cognizer.model.api.CognizerUserSubscriptionAssignmentRequest;
+import com.supportwizard.ext.cognizer.model.api.*;
+
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
@@ -211,6 +192,15 @@ public final class CognizerHttpHelperImpl2 implements CognizerHttpHelper2 {
         this.sendRequestWithAuth("DELETE", this.cognizerBaseUrl + "/" + "organisation" + "/" + orgId+"?removeData=true", headers, (Object)null, (Class)null, adminUsername, adminPassword);
     }
 
+    public void tenantDeactivationV2(String adminUsername, String adminPassword, String orgId) throws Exception {
+        Map<String, String> headers = new HashMap<String, String>() {
+            {
+                this.put("x-api-key", CognizerHttpHelperImpl2.this.xApiHeaderKey);
+            }
+        };
+        this.sendRequestWithAuth("DELETE", this.cognizerBaseUrl + "/" + "tenant" + "/" + orgId+"?removeData=true", headers, (Object)null, (Class)null, adminUsername, adminPassword);
+    }
+
     public void reserveUserSubscription(String adminUsername, String adminPassword, String orderId, String orgId, Long noOfSubscription) throws Exception {
         Map<String, String> headers = new HashMap<String, String>() {
             {
@@ -228,6 +218,52 @@ public final class CognizerHttpHelperImpl2 implements CognizerHttpHelper2 {
             }
         };
         return (CognizerUserAssignmentListResponse)this.sendRequestWithAuth("GET", this.cognizerBaseUrl + "/" + "user/assignment/list", headers, (Object)null, CognizerUserAssignmentListResponse.class, adminUsername, adminPassword);
+    }
+
+    @Override
+    public CognizerTenantCreateResponseV2 createTenantV2(String adminUsername, String adminPassword, String tenantType, String privacyMode, String tenantName, String tenantAdminEmail, String tenantDomain, String[] productSkuList, int expiryMonths) throws Exception {
+        Map<String, String> headers = new HashMap<String, String>() {
+            {
+                this.put("x-api-key", CognizerHttpHelperImpl2.this.xApiHeaderKey);
+            }
+        };
+        CognizerTenantCreateRequestV2 request = new CognizerTenantCreateRequestV2(tenantName, tenantType, privacyMode, tenantAdminEmail, tenantDomain, productSkuList, expiryMonths);
+
+        return (CognizerTenantCreateResponseV2)this.sendRequestWithAuth("POST", this.cognizerBaseUrl + "/" + "tenant", headers, request, CognizerTenantCreateResponseV2.class, adminUsername, adminPassword);
+    }
+
+    @Override
+    public CognizerTenantUpdateSKUResponseV2 updateTenantSKUV2(String adminUsername, String adminPassword, String tenantId, String[] productSkuList) throws Exception {
+        Map<String, String> headers = new HashMap<String, String>() {
+            {
+                this.put("x-api-key", CognizerHttpHelperImpl2.this.xApiHeaderKey);
+            }
+        };
+        CognizerTenantUpdateSKURequestV2 request = new CognizerTenantUpdateSKURequestV2(tenantId, productSkuList);
+
+        return (CognizerTenantUpdateSKUResponseV2)this.sendRequestWithAuth("PUT", this.cognizerBaseUrl + "/" + "tenant/product/sku", headers, request, CognizerTenantUpdateSKUResponseV2.class, adminUsername, adminPassword);
+    }
+
+    @Override
+    public CognizerCreateUserOrderResponseV2 createUserOrderV2(String adminUsername, String adminPassword, String tenantId, Long licNumber) throws Exception {
+        Map<String, String> headers = new HashMap<String, String>() {
+            {
+                this.put("x-api-key", CognizerHttpHelperImpl2.this.xApiHeaderKey);
+            }
+        };
+        CognizerCreateUserOrderRequestV2 request = new CognizerCreateUserOrderRequestV2(tenantId, licNumber);
+
+        return (CognizerCreateUserOrderResponseV2)this.sendRequestWithAuth("POST", this.cognizerBaseUrl + "/" + "order", headers, request, CognizerCreateUserOrderResponseV2.class, adminUsername, adminPassword);
+    }
+
+    @Override
+    public CognizerTenantSKUResponseV2 getTenantSKUV2(String adminUsername, String adminPassword, String tenantId) throws Exception {
+        Map<String, String> headers = new HashMap<String, String>() {
+            {
+                this.put("x-api-key", CognizerHttpHelperImpl2.this.xApiHeaderKey);
+            }
+        };
+        return (CognizerTenantSKUResponseV2)this.sendRequestWithAuth("GET", this.cognizerBaseUrl + "/tenant/"+tenantId, headers, null, CognizerTenantSKUResponseV2.class, adminUsername, adminPassword);
     }
 
     private CognizerTokenResponse getTokenEnforced(String username, String password) throws Exception {

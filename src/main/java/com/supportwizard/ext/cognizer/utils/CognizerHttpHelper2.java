@@ -6,16 +6,7 @@
 package com.supportwizard.ext.cognizer.utils;
 
 import com.supportwizard.ext.cognizer.model.CognizerUser;
-import com.supportwizard.ext.cognizer.model.api.CognizerIngestRequest;
-import com.supportwizard.ext.cognizer.model.api.CognizerIngestResponse;
-import com.supportwizard.ext.cognizer.model.api.CognizerIngestStatusResponse;
-import com.supportwizard.ext.cognizer.model.api.CognizerOrderCreateResponse;
-import com.supportwizard.ext.cognizer.model.api.CognizerQNARequest;
-import com.supportwizard.ext.cognizer.model.api.CognizerQNAResponse;
-import com.supportwizard.ext.cognizer.model.api.CognizerTenantAssignmentResponse;
-import com.supportwizard.ext.cognizer.model.api.CognizerTenantCreateResponse;
-import com.supportwizard.ext.cognizer.model.api.CognizerTokenResponse;
-import com.supportwizard.ext.cognizer.model.api.CognizerUserAssignmentListResponse;
+import com.supportwizard.ext.cognizer.model.api.*;
 
 public interface CognizerHttpHelper2 {
     void register(CognizerUser var1) throws Exception;
@@ -39,8 +30,17 @@ public interface CognizerHttpHelper2 {
     void tenantUpgrade(String var1, String var2, String var3) throws Exception;
 
     void tenantDeactivation(String var1, String var2, String var3) throws Exception;
+    void tenantDeactivationV2(String var1, String var2, String var3) throws Exception;
 
     void reserveUserSubscription(String var1, String var2, String var3, String var4, Long var5) throws Exception;
 
     CognizerUserAssignmentListResponse userAssignmentList(String var1, String var2) throws Exception;
+
+    CognizerTenantCreateResponseV2 createTenantV2(String adminUsername, String adminPassword, String tenantType, String privacyMode, String tenantName, String tenantAdminEmail, String tenantDomain, String[] productSkuList, int expiryMonths) throws Exception;
+
+    CognizerTenantUpdateSKUResponseV2 updateTenantSKUV2(String adminUsername, String adminPassword, String tenantId, String[] productSkuList) throws Exception;
+
+    CognizerCreateUserOrderResponseV2 createUserOrderV2(String adminUsername, String adminPassword, String tenantId, Long licNumber) throws Exception;
+
+    CognizerTenantSKUResponseV2 getTenantSKUV2(String adminUsername, String adminPassword, String tenantId) throws Exception;
 }

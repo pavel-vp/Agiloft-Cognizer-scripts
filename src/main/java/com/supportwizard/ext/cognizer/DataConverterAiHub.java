@@ -6,17 +6,18 @@
 package com.supportwizard.ext.cognizer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.supportwizard.ext.cognizer.model.AiHubLicense;
 import com.supportwizard.swlicenses.data.LicenseData;
 import com.supportwizard.swlicenses.exceptions.InvalidLicenseActionException;
 import com.supportwizard.utils.Base64;
 import com.supportwizard.utils.DateConverter;
 import com.supportwizard.utils.DateConverterException;
-import java.io.IOException;
+import org.apache.log4j.Logger;
+
 import java.util.Date;
 import java.util.StringTokenizer;
 
 public class DataConverterAiHub {
+    private static final Logger log = Logger.getLogger(DataConverterAiHub.class);
     public DataConverterAiHub() {
     }
 
@@ -152,6 +153,7 @@ public class DataConverterAiHub {
             ld.setName(ld.getHost() + ":" + ld.getIp() + ":" + ld.getLicenseType() + ":" + ld.getKnowledgebase());
             return ld;
         } catch (NumberFormatException var9) {
+            log.error("error in number format", var9);
             throw new InvalidLicenseActionException(var9, "licenses.parse.error.numeric", new Object[]{var9});
         } catch (DateConverterException var10) {
             throw new InvalidLicenseActionException(var10, "licenses.parse.error.date", new Object[]{var10});

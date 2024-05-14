@@ -19,7 +19,7 @@ import com.supportwizard.dml.exceptions.ExternalTableAccessException;
 import com.supportwizard.dml.exceptions.SWDataRetrievalException;
 import com.supportwizard.dml.interfaces.SWDataRetriever;
 import com.supportwizard.ext.cognizer.KeyGenAiHub;
-import com.supportwizard.ext.cognizer.model.AiHubLicense;
+import com.supportwizard.ext.cognizer.model.AiHubLicense2;
 import com.supportwizard.functionalities.lock.SWRecordLockedException;
 import org.apache.log4j.Logger;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -103,10 +103,10 @@ public class CognizerUtils2 {
     }
 
     public static String generateAiHubLicenseKey(boolean encode, String baseUrl, String xapiKey, String orgId, String tenantAdminUserId, Long expirationDate, String tenantType, String privacyMode, Long qty,
-                                                 String hostname, String ipaddress, Long expirationTimeMin, Timestamp assignedDate, String kbname, Seance seance) throws Exception {
+                                                 String hostname, String ipaddress, Long expirationTimeMin, Timestamp assignedDate, String kbname, Seance seance, String tenantDomain, String[] sku) throws Exception {
         ObjectMapper objectMapper = new ObjectMapper();
         SimpleDateFormat df = new SimpleDateFormat("dd.MMM.yyyy", java.util.Locale.US);
-        AiHubLicense aiHubLicense = new AiHubLicense(baseUrl, xapiKey, orgId, tenantAdminUserId, "EmpowerGenius2022", expirationDate, tenantType, privacyMode, qty);
+        AiHubLicense2 aiHubLicense = new AiHubLicense2(baseUrl, xapiKey, orgId, tenantAdminUserId, "EmpowerGenius2022", expirationDate, tenantType, privacyMode, qty, tenantDomain, sku);
 
         String tmp = null;
         if (encode) {

@@ -1,7 +1,7 @@
 package com.supportwizard.ext.cognizer.utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.supportwizard.ext.cognizer.model.AiHubLicense;
+import com.supportwizard.ext.cognizer.model.AiHubLicense2;
 import com.supportwizard.seance.Seance;
 import com.supportwizard.swlicenses.ejb.entity.License;
 import com.supportwizard.swlicenses.ejb.session.LicenseLocal;
@@ -26,7 +26,7 @@ public class AiHubLicenseUtil2 {
 
   private static final byte[] salt = new byte[] {44, 47, 49, 31,44, 47, 49, 31,44, 47, 49, 31,44, 47, 49, 31};
 
-  public static AiHubLicense readAiHubLicense(Seance seance, String key) {
+  public static AiHubLicense2 readAiHubLicense(Seance seance, String key) {
     LicenseLocal licenseFacade = seance.getHomesGetter().getSessionBean(LicenseLocal.class);
     Collection<License> licenses = licenseFacade.getAiHubLicense(seance.getProjectID());
     if (licenses.size() == 1) {
@@ -35,7 +35,7 @@ public class AiHubLicenseUtil2 {
         String encoded = license.getLanguages();
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-          return objectMapper.readValue(Base64.decode(decrypt(encoded, key).toCharArray()), AiHubLicense.class);
+          return objectMapper.readValue(Base64.decode(decrypt(encoded, key).toCharArray()), AiHubLicense2.class);
         } catch (IOException e) {
           log.error("Exception during parsing aiHubLicense :"+encoded, e);
         }

@@ -12,9 +12,7 @@ import com.supportwizard.actions2.interfaces.ScriptInput;
 import com.supportwizard.actions2.interfaces.ScriptOutput;
 import com.supportwizard.dictionary.SWChoiceLine;
 import com.supportwizard.dml.SWDataMap;
-import com.supportwizard.ext.cognizer.model.AiHubLicense;
 import com.supportwizard.ext.cognizer.model.api.CognizerUserAssignmentListResponse;
-import com.supportwizard.ext.cognizer.utils.AiHubLicenseUtil2;
 import com.supportwizard.ext.cognizer.utils.CognizerHttpHelper2;
 import com.supportwizard.ext.cognizer.utils.CognizerHttpHelperImpl2;
 import com.supportwizard.ext.cognizer.utils.CognizerUtils2;
@@ -24,8 +22,7 @@ import com.supportwizard.seance.Seance;
 import com.supportwizard.swlicenses.exceptions.InvalidLicenseActionException;
 import com.supportwizard.swlicenses.util.KeyGen;
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.util.Locale;
+
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.log4j.Logger;
@@ -65,6 +62,7 @@ public class CognizerOrderLicenseGenAction implements ExternalScript {
         String hostname = (String)inputRecord.get("server_hostname");
         String ipaddress = (String)inputRecord.get("ip_address");
         String orgId = (String)inputRecord.get("tenant_org_id");
+        String tenantDomain = (String)inputRecord.get("tenant_domain");
         String tenantAdminUserId = (String)inputRecord.get("tenant_admin_userid");
         Timestamp expirationDate = (Timestamp)inputRecord.get("tenant_expiration_date");
         Timestamp assignedDate = (Timestamp)inputRecord.get("tenant_assigned_date");
@@ -79,7 +77,7 @@ public class CognizerOrderLicenseGenAction implements ExternalScript {
                 CognizerUserAssignmentListResponse userAssignmentResponse = httpHelper.userAssignmentList(tenantAdminUserId, "EmpowerGenius2022");
 
                 String licenseKey = CognizerUtils2.generateAiHubLicenseKey(encode.equals("True"), baseUrl, xapiKey, orgId, tenantAdminUserId, expirationDate.getTime(), tenantType, privacyMode, userAssignmentResponse.getTotalCount(),
-                        hostname, ipaddress, expirationTimeMin, assignedDate, kbname, input.getUserSeance());
+                        hostname, ipaddress, expirationTimeMin, assignedDate, kbname, input.getUserSeance(), tenantDomain, null);
 /*
                 String licenseKey = null;
                 ObjectMapper objectMapper = new ObjectMapper();

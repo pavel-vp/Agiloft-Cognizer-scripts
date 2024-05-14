@@ -6,8 +6,10 @@
 package com.supportwizard.ext.cognizer.model;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
-public class AiHubLicense implements Serializable {
+@JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
+public class AiHubLicense2 implements Serializable {
     private String baseUrl;
     private String xApiKey;
     private String orgId;
@@ -17,11 +19,13 @@ public class AiHubLicense implements Serializable {
     private String tenantType;
     private String privacyMode;
     private Long noOfSubscription;
+    private String tenantDomain;
+    private String[] sku;
 
-    public AiHubLicense() {
+    public AiHubLicense2() {
     }
 
-    public AiHubLicense(String baseUrl, String xApiKey, String orgId, String tenantAdminUserName, String tenantAdminPassword, Long endDate, String tenantType, String privacyMode, Long noOfSubscription) {
+    public AiHubLicense2(String baseUrl, String xApiKey, String orgId, String tenantAdminUserName, String tenantAdminPassword, Long endDate, String tenantType, String privacyMode, Long noOfSubscription, String tenantDomain, String[] sku) {
         this.baseUrl = baseUrl;
         this.xApiKey = xApiKey;
         this.orgId = orgId;
@@ -31,6 +35,8 @@ public class AiHubLicense implements Serializable {
         this.tenantType = tenantType;
         this.privacyMode = privacyMode;
         this.noOfSubscription = noOfSubscription;
+        this.tenantDomain = tenantDomain;
+        this.sku = sku;
     }
 
     public String getBaseUrl() {
@@ -67,5 +73,12 @@ public class AiHubLicense implements Serializable {
 
     public Long getNoOfSubscription() {
         return this.noOfSubscription;
+    }
+    public String getTenantDomain() {
+        return tenantDomain;
+    }
+
+    public String[] getSku() {
+        return sku;
     }
 }
